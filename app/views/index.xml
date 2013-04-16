@@ -1,0 +1,19 @@
+<Alloy>
+	<Collection src="team" />
+	<TabGroup>
+		<Tab id="tab1" title="Teams" icon="KS_nav_views.png">
+			<Window id="tab1_win1">
+				<TableView dataCollection="team" onClick="openTeamPlayers" platform="android">
+					<Require src="trow" />
+				</TableView>
+				<NavigationGroup id="nav1" platform="ios">
+					<Window id="nav1_win1" title="Teams">
+						<TableView dataCollection="team" onClick="openTeamPlayers" >
+							<Require src="trow" />
+						</TableView>
+					</Window>
+				</NavigationGroup>
+			</Window>
+		</Tab>
+	</TabGroup>
+</Alloy>

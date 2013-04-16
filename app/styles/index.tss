@@ -1,0 +1,27 @@
+"#tab0_win1": {
+	backgroundColor: "#fff",
+	backgroundImage: "Angels2012.png",
+	navBarHidden: true
+}
+
+"#tab1_win1": {
+	backgroundColor: "#fff",
+	navBarHidden: true
+}
+
+"Label": {
+	width: Ti.UI.SIZE,
+	height: Ti.UI.SIZE,
+
+} 
+
+"#teamname": {
+	top: '7dp',
+	left: '7dp',
+	font: {
+		fontSize: '24dp',
+		fontWeight: 'bold'
+	}
+}
+
+

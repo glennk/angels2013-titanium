@@ -1,0 +1,10 @@
+<Alloy>
+	<Window title="Player Details" backgroundColor="#fff">
+		<ImageView id="team_banner" />
+		<Label id="name" />
+		<Label id="height"/>
+		<Label id="weight"/>
+		<Label id="age"/>
+		<Label id="record"/>
+	</Window>
+</Alloy>

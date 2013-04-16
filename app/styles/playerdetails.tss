@@ -1,0 +1,33 @@
+"#team_banner" : {
+	left: 0,
+	top: 0
+}
+
+"Label": {
+    font: {
+        fontSize: '18dp',
+        fontWeight: 'normal'
+    },
+    textAlign: 'left'
+}
+
+"#height": {
+    left: 15,
+    top: 40,
+
+}
+
+"#weight": {
+    left: 15,
+    top: 60,
+}
+
+"#age": {
+    left: 15,
+    top: 80,
+}
+
+"#record": {
+    left: 15,
+    top: 180,
+}

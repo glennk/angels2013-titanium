@@ -1,0 +1,34 @@
+"#row": {
+	height: '60dp',
+	backgroundColor: '#fff',
+    className: 'itemRow',
+    hasChild: true,
+    hasDetail: false
+}
+
+"#number": {
+	top: '7dp',
+	left: '7dp',
+	font: {
+		fontSize: '24dp',
+		fonWeight: 'normal'
+	}
+}
+
+"#fullname": {
+	top: '7dp',
+	left: '50dp',
+	font: {
+		fontSize: '24dp',
+		fontWeight: 'bold'
+	}
+}
+
+"#nickname": {
+	bottom: '7dp',
+	left: '70dp',
+	font: {
+		fontSize: '16dp',
+		fonWeight: 'normal'
+	}
+}

@@ -1,0 +1,12 @@
+<Alloy>
+	<Collection src="player" />
+	<Window id="win4" title="All Players" >
+		<TableView id="mypv" dataCollection="player" onClick="openPlayerDetails" dataFilter="filterByTeam">
+			<TableViewRow id="row">
+				<Label id="lastname" text="{lastname}"/>
+				<Label id="firstname" text="{firstname}"/>
+				<Label id="number"  text="{number}"/>
+			</TableViewRow>
+		</TableView>
+	</Window>
+</Alloy>
