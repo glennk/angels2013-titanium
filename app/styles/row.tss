@@ -1,34 +1,36 @@
 "#row": {
-	height: '60dp',
+	height: '44dp',
 	backgroundColor: '#fff',
     className: 'itemRow',
     hasChild: true,
     hasDetail: false
 }
 
-"#number": {
-	top: '7dp',
-	left: '7dp',
+"#name": {
+	top: '2dp',
+	left: '10dp',
 	font: {
-		fontSize: '24dp',
-		fonWeight: 'normal'
-	}
-}
-
-"#fullname": {
-	top: '7dp',
-	left: '50dp',
-	font: {
-		fontSize: '24dp',
+		fontSize: '18dp',
 		fontWeight: 'bold'
 	}
 }
 
-"#nickname": {
-	bottom: '7dp',
-	left: '70dp',
+"#number": {
+	bottom: '2dp',
+	left: '10dp',
+	color: 'gray',
 	font: {
-		fontSize: '16dp',
+		fontSize: '14dp',
+		fonWeight: 'normal'
+	}
+}
+
+"#nickname": {
+	bottom: '2dp',
+	left: '40dp',
+	color: 'gray',
+	font: {
+		fontSize: '14dp',
 		fonWeight: 'normal'
 	}
 }

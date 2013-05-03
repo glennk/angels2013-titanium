@@ -1,6 +1,6 @@
 <Alloy>
 	<TableViewRow id="trow">
-		<Label id="name" text="{name}" />
-		<Label id="level" text="{level}" />
+		<Label id="name" />
+		<Label id="level" />
 	</TableViewRow>
 </Alloy>

@@ -1,5 +1,5 @@
 "#trow": {
-	height: '60dp',
+	height: '50dp',
 	backgroundColor: '#fff',
 	className: 'itemRow',
     hasChild: true
@@ -9,12 +9,13 @@
 	top: '7dp',
 	left: '5dp',
 	font: {
-		fontSize: '24dp',
+		fontSize: '20dp',
 		fontWeight: 'bold'
 	}
 }
 
 "#level": {
+	visible: false,
 	bottom: '7dp',
 	left: '70dp',
 	font: {

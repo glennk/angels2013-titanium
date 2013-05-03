@@ -1,10 +1,9 @@
 <Alloy>
-	<Window title="Player Details" backgroundColor="#fff">
+	<Window id="pd1" backButtonTitle='Back' title="Player" backgroundColor="#000" tabBarHidden='true'>
 		<ImageView id="team_banner" />
+		<ImageView id="player_photo" />
+		<Label id="number"/>
 		<Label id="name" />
-		<Label id="height"/>
-		<Label id="weight"/>
-		<Label id="age"/>
-		<Label id="record"/>
+		<Label id="nickname"/>
 	</Window>
 </Alloy>

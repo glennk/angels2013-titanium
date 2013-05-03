@@ -1,0 +1,66 @@
+<Alloy>
+	<Window title='' backgroundColor="#000">
+		<TableView id="table1" style="Titanium.UI.iPhone.TableViewStyle.GROUPED">
+			<HeaderView>
+				<View height="44dp">
+					<Label id="name"></Label>
+				</View>
+			</HeaderView>
+			<TableViewSection>
+				<TableViewRow>
+					<Label class="label">throws</Label>
+					<Label class="value" id="throws">?</Label>
+				</TableViewRow>
+				<TableViewRow>
+					<Label class="label">bats</Label>
+					<Label class="value" id="bats">?</Label>
+				</TableViewRow>
+			</TableViewSection>
+			<TableViewSection id="sectionVeg" headerTitle="Parent/Contact Info">
+				<TableViewRow>
+					<Label class="label">parent</Label>
+					<Label class="value" id="parent1">?</Label>
+				</TableViewRow>
+				<TableViewRow>
+					<Label class="label">cell</Label>
+					<Label class="value" id="cell1">?</Label>
+				</TableViewRow>
+				<TableViewRow>
+					<Label class="label">email</Label>
+					<Label class="value" id="email1">?</Label>
+				</TableViewRow>
+				<TableViewRow>
+					<Label class="label">parent</Label>
+					<Label class="value" id="parent2">Tania</Label>
+				</TableViewRow>
+			</TableViewSection>
+			<FooterView>
+				<View height="40dp">
+					<Button onClick="showOptions">Send Text Message</Button>
+				</View>
+			</FooterView>
+		</TableView>
+		
+		    <!--
+            The OptionDialog tag declares an option dialog,
+            which will need to be opened by the controller.
+        -->
+        <OptionDialog id="dialog" cancel="2" title="Send a Text Message:">
+
+            <!-- The Options tag sets the options property. -->
+            <Options>
+                <Option>phone1: 512-335-3211</Option>
+                <Option>phone2: 512-657-4117</Option>
+                <Option>Cancel</Option>
+            </Options>
+
+            <!-- The ButtonNames tag sets the Android-only buttonNames property. -->
+            <ButtonNames>
+                <ButtonName>Confirm</ButtonName>
+            </ButtonNames>
+
+            <!-- Add a View for the androidView property here. -->
+
+        </OptionDialog>
+	</Window>
+</Alloy>

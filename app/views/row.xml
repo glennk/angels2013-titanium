@@ -1,7 +1,7 @@
 <Alloy>
 	<TableViewRow id="row">
-		<Label id="fullname" text="{fullname}"/>
-		<Label id="number" text="{number}"/>
-		<Label id="nickname" text="{nickname}"/>
+		<Label id="name" />
+		<Label id="number" />
+		<Label id="nickname" />
 	</TableViewRow>
 </Alloy>

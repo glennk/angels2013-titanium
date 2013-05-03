@@ -1,13 +1,18 @@
 // Global URL variable
-var BASE_URL = 'http://angelsbeta-gkrondev.rhcloud.com/rest';
+var BASE_URL = 'http://angelsprod-gkrondev.rhcloud.com/rest';
+// var BASE_URL = 'http://localhost:8080/myproj/rest';
 
 // Override the Backbone.sync method with the following
 module.exports.sync = function(method, model, options) {
 
-	//console.log('typeof: ' + (model.config.adapter.url));
-	//console.log('model url ' + model.url());
+	console.log('model.config.adapter.url: ' + model.config.adapter.url);
+	if (model.url != undefined) {
+		console.log('model.url() ' + model.url());
+	}
     var payload = model.toJSON();
-    //console.log('payload[model] = ' + JSON.stringify(payload));
+    		Ti.API.info(JSON.stringify(model, null, 2));
+
+    console.log('payload[model] = ' + JSON.stringify(payload));
     var error;
 
     switch(method) {
@@ -17,7 +22,9 @@ module.exports.sync = function(method, model, options) {
             // Use the idAttribute property in case the model ID is set to something else besides 'id'
             if (payload[model.idAttribute]) {
                 // If we have an ID, fetch only one tweet
-                http_request('GET', BASE_URL + model.config.adapter.url + '/1', {id:payload[model.idAttribute]}, callback);
+                var url = (model.url != undefined ? model.url() : model.config.adapter.url);
+                console.log('url : ' + url);
+                http_request('GET', BASE_URL + url, {id:payload[model.idAttribute]}, binary_callback);
             }
             else {
                 // if not, fetch as many as twitter will allow us
@@ -67,18 +74,45 @@ module.exports.sync = function(method, model, options) {
  
     // Simple default callback function for HTTP request operations.
     function callback(success, response, error) {	
-    	console.log('angels_rest.js//response: ' + response);
+    	console.log('angels_rest.js//callback//response: ' + response);
         res = JSON.parse(response);
         if (success) {
         	console.log('angels_rest.js//success!' + res.length);
         	
-        	_.each(res, function(item) {
-				console.log('angels_rest.js//item: ' + JSON.stringify(item));
-			});
+        	// _.each(res, function(item) {
+				// console.log('angels_rest.js//item: ' + JSON.stringify(item));
+			// });
         	
             // Calls the default Backbone success callback
             // and invokes a custom callback if options.success was defined.
-            options.success(res, JSON.stringify(res), options);
+            options.success(res);
+            //options.success(res, JSON.stringify(res), options);
+        }
+        else {
+            // res.errors is an object returned by the Twitter server
+            var err = res.errors[0].message || error;
+            Ti.API.error('ERROR: ' + err);
+            // Calls the default Backbone error callback
+            // and invokes a custom callback if options.error was defined.
+            options.error(model, err, options);
+            model.trigger('error');
+        }
+    };
+ 
+    // Simple default callback function for HTTP request operations.
+    function binary_callback(success, response, error) {	
+    	console.log('angels_rest.js//binary_callback//response: ' + response.length);
+        if (success) {
+        	console.log('angels_rest.js//success!' + res.length);
+        	
+        	// _.each(res, function(item) {
+				// console.log('angels_rest.js//item: ' + JSON.stringify(item));
+			// });
+        	
+            // Calls the default Backbone success callback
+            // and invokes a custom callback if options.success was defined.
+            options.success(res);
+            //options.success(res, JSON.stringify(res), options);
         }
         else {
             // res.errors is an object returned by the Twitter server
@@ -106,7 +140,7 @@ function http_request(method, url, payload, callback) {
         onerror: function(e) {
             if (callback) callback(false, this.responseText, e.error);
         },
-        timeout : 6000
+        timeout : 60000
     });
 
 

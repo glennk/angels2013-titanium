@@ -1,12 +1,9 @@
 <Alloy>
-	<Collection src="player" />
-	<Window id="win4" title="All Players" >
-		<TableView id="mypv" dataCollection="player" onClick="openPlayerDetails" dataFilter="filterByTeam">
-			<TableViewRow id="row">
-				<Label id="lastname" text="{lastname}"/>
-				<Label id="firstname" text="{firstname}"/>
-				<Label id="number"  text="{number}"/>
-			</TableViewRow>
+	<Window id="win4" title="Team Players">
+		<TableView id="playerlist" onClick="openPlayerDetails" >
+			<HeaderView>
+				<ImageView id="team_banner"/>
+			</HeaderView>
 		</TableView>
 	</Window>
 </Alloy>

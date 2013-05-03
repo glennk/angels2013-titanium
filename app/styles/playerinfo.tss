@@ -1,0 +1,30 @@
+"#name" : {
+	left: '6dp',
+    font: {
+        fontSize: '26dp',
+        fontWeight: 'bold'
+    },
+}
+
+".label": {
+	color: 'rgba(81,102,145,1.0)',
+    font: {
+        fontSize: '12dp',
+        fontFamily: 'Helvetica'
+    },
+    textAlign: Titanium.UI.TEXT_ALIGNMENT_RIGHT,
+    right: 220
+},
+
+".value": {
+	color: 'black',
+    font: {
+        fontSize: '17dp',
+        fontFamily: 'Helvetica'
+    },
+    left: 100
+},
+
+"TableViewRow" : {
+	height: '44dp',
+}

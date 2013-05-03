@@ -11,44 +11,44 @@
 // Alloy.Globals.someGlobalFunction = function(){};
 
 
-var teams = Alloy.Collections.instance('team');
-teams.fetch({
-	success : function(_model, _response) {
-		//Ti.API.info(JSON.stringify(_response, null, 2));
-		// var rows = [];
-		// _.each(_response, function(item) {
-			// console.log('angels_rest.js//item: ' + JSON.stringify(item));
-			// rows.push(Alloy.createController('trow', {
-				// name : item.name,
-				// level : item.level
-			// }).getView());
-		// });
-		// $.table9.setData(rows);
-	},
-	error : function(_model, _response) {
-		//Ti.API.info(JSON.stringify(_response, null, 2));
-		alert("error retrieving Team data");
-	}
-});
+// var teams = Alloy.Collections.instance('team');
+// teams.fetch({
+	// success : function(_model, _response) {
+		// //Ti.API.info(JSON.stringify(_response, null, 2));
+		// // var rows = [];
+		// // _.each(_response, function(item) {
+			// // console.log('angels_rest.js//item: ' + JSON.stringify(item));
+			// // rows.push(Alloy.createController('trow', {
+				// // name : item.name,
+				// // level : item.level
+			// // }).getView());
+		// // });
+		// // $.table9.setData(rows);
+	// },
+	// error : function(_model, _response) {
+		// //Ti.API.info(JSON.stringify(_response, null, 2));
+		// alert("error retrieving Team data");
+	// }
+// });
+// 
 
-
-var players = Alloy.Collections.instance('player');
-players.fetch({
-	success : function(_model, _response) {
-		//Ti.API.info(JSON.stringify(_response, null, 2));
-		// var rows = [];
-		// _.each(_response, function(item) {
-			// console.log('angels_rest.js//item: ' + JSON.stringify(item));
-			// rows.push(Alloy.createController('trow', {
-				// name : item.name,
-				// level : item.level
-			// }).getView());
-		// });
-		// $.table9.setData(rows);
-	},
-	error : function(_model, _response) {
-		//Ti.API.info(JSON.stringify(_response, null, 2));
-		alert("error retrieving Player data");
-	}
-});
+// var players = Alloy.Collections.instance('player');
+// players.fetch({
+	// success : function(_model, _response) {
+		// //Ti.API.info(JSON.stringify(_response, null, 2));
+		// // var rows = [];
+		// // _.each(_response, function(item) {
+			// // console.log('angels_rest.js//item: ' + JSON.stringify(item));
+			// // rows.push(Alloy.createController('trow', {
+				// // name : item.name,
+				// // level : item.level
+			// // }).getView());
+		// // });
+		// // $.table9.setData(rows);
+	// },
+	// error : function(_model, _response) {
+		// //Ti.API.info(JSON.stringify(_response, null, 2));
+		// alert("error retrieving Player data");
+	// }
+// });
 

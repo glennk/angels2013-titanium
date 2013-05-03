@@ -3,31 +3,42 @@
 	top: 0
 }
 
+"#player_photo" : {
+	left: 8,
+	top: 63,
+	width: 304,
+	height: 355
+}
+
 "Label": {
-    font: {
-        fontSize: '18dp',
-        fontWeight: 'normal'
-    },
+	color: '#fff',
     textAlign: 'left'
 }
 
-"#height": {
-    left: 15,
-    top: 40,
-
+"#number": {
+    font: {
+        fontSize: '28dp',
+        fontWeight: 'bold'
+    },
+    left: 20,
+    top: 345,
 }
 
-"#weight": {
-    left: 15,
-    top: 60,
+"#name": {
+    font: {
+		fontFamily: 'Helvetica',
+		fontStyle: 'oblique',
+        fontSize: '28dp',
+        fontWeight: 'bold'
+    },
+    left: 61,
+    top: 345,
 }
 
-"#age": {
-    left: 15,
-    top: 80,
-}
-
-"#record": {
-    left: 15,
-    top: 180,
+"#nickname" : {
+    font: {
+        fontSize: '17dp',
+    },
+    left: 61,
+    top: 380,
 }

@@ -1,34 +1,6 @@
-/// duplicate of what's in row.tss
-
-"#row": {
-	height: '60dp',
-	backgroundColor: '#fff',
-	hasChild: true
-}
-
-"#number": {
-	top: '7dp',
-	left: '7dp',
-	font: {
-		fontSize: '24dp',
-		fonWeight: 'normal'
-	}
-}
-
-"#firstname": {
-	top: '7dp',
-	left: '50dp',
-	font: {
-		fontSize: '24dp',
-		fontWeight: 'bold'
-	}
-}
-
-"#lastname": {
-	bottom: '7dp',
-	left: '70dp',
-	font: {
-		fontSize: '16dp',
-		fonWeight: 'normal'
-	}
+"#team_banner" : {
+	left: 0,
+	top: 0,
+	width: 320,
+	height: 54
 }

@@ -1,18 +1,22 @@
-"#tab0_win1": {
-	backgroundColor: "#fff",
-	backgroundImage: "Angels2012.png",
-	navBarHidden: true
-}
+// "#tab0_win1": {
+	// backgroundColor: "#fff",
+	// backgroundImage: "Angels2012.png",
+	// navBarHidden: false
+// }
 
 "#tab1_win1": {
 	backgroundColor: "#fff",
-	navBarHidden: true
+	navBarHidden: false
+}
+
+"#tab2_win1": {
+	backgroundColor: "#fff",
+	navBarHidden: false
 }
 
 "Label": {
 	width: Ti.UI.SIZE,
-	height: Ti.UI.SIZE,
-
+	height: Ti.UI.SIZE
 } 
 
 "#teamname": {
