@@ -3,7 +3,7 @@ console.log('playerinfo.arguments: ' + JSON.stringify(arg));
 
 var p = arg.player;
 
-$.name.text = '#' + p.get('number') + ' ' + p.get('firstname') + ' ' + p.get('lastname');
+$.name.text = '#' + p.get('number') + ' ' + p.fullname();
 $.bats.text = p.get('bats');
 $.throws.text = p.get('throws1');
 $.parent1.text = p.get('parents').parent1;

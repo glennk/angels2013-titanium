@@ -3,18 +3,18 @@ exports.definition = {
 
 		"adapter" : {
 			"type" : "angels_rest",
-			 // Passed parameter processed when beforeModelCreate is called
-            //'base_url': 'http://angelsprod-gkrondev.rhcloud.com/rest/player'
-            "url" : '/player'
+			// Passed parameter processed when beforeModelCreate is called
+			//'base_url': 'http://angelsprod-gkrondev.rhcloud.com/rest/player'
+			"url" : '/player'
 		}
 	},
-	
+
 	extendModel : function(Model) {
 		_.extend(Model.prototype, {
 			// Extend, override or implement Backbone.Model
-			fullname: function() {
-				console.log('fullname' + this.get("lastname"));
-				return this.get('firstname') + this.get('lastname');
+			fullname : function() {
+				//console.log('fullname' + this.get("lastname"));
+				return this.get('firstname') + ' ' + this.get('lastname');
 			}
 		});
 
@@ -24,7 +24,9 @@ exports.definition = {
 	extendCollection : function(Collection) {
 		_.extend(Collection.prototype, {
 			// Extend, override or implement Backbone.Collection
-			
+			comparator : function(collection) {
+				return ( collection.get('lastname') );
+			}
 		});
 
 		return Collection;

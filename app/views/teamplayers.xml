@@ -5,5 +5,7 @@
 				<ImageView id="team_banner"/>
 			</HeaderView>
 		</TableView>
+		<!-- ActivityIndicator must come after the TableView otherwise it won't show up since it will be covered by the TableView -->
+		<ActivityIndicator id='busy2' style='Titanium.UI.iPhone.ActivityIndicatorStyle.DARK' message="Loading ..."/>
 	</Window>
 </Alloy>

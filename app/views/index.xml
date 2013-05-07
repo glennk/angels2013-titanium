@@ -5,9 +5,11 @@
 				<TableView id='teamlist' onClick="openTeamPlayers" />
 			</Window>
 		</Tab>
-		<Tab id="tab2" title="Players" icon="112-group.png">
+		<Tab id="tab2" title="Players" icon="112-group.png" onFocus="loadPlayers">
 			<Window id="tab2_win1" title="Players">
 				<TableView id='playerlist' onClick="openPlayerDetails2" />
+				<!-- ActivityIndicator must come after the TableView otherwise it won't show up since it will be covered by the TableView -->
+				<ActivityIndicator id='busy' style='Titanium.UI.iPhone.ActivityIndicatorStyle.DARK' message="Loading ..."/>
 			</Window>
 		</Tab>
 	</TabGroup>

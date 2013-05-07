@@ -1,78 +1,72 @@
-// var teamId = arguments[0] || {};
-// console.log('teamId.arguments: ' + JSON.stringify(teamId));
+var args = arguments[0] || {};
+console.log('teamplayers.js//args.team: ' + JSON.stringify(args.team));
 
-console.log('teamplayers.js');
-//	players.trigger('fetch');
+var team = args.team;
+var teamId = team.get('idteams');
 
-exports.setTeam = function(team) {
-	console.log('setTeam: ' + JSON.stringify(team))
-	$.win4.title = team ? team.get('name') : '';
-	if (team) {
-		teamId = team.get('idteams');
-		console.log('idteams:' + teamId);
-	}
-	//	$.mypv.dataFilter = 'filterByTeam';
-
-	//players.trigger('fetch');
-
-	// var players = Alloy.Collections.Player;
-	// console.log('players.length = ' + players.length);
-	// console.log('teamplayers.js//setTeam()');
-	//
-	var players = filterByTeam(Alloy.Collections.instance('player'));
-	var rows = [];
-
-	for (var i = 0, j = players.length; i < j; i++) {
-		var p = players[i];
-		console.log('players[i] = ' + p.get('lastname'));
-		rows.push(Alloy.createController('row', {
-			name : p.get('firstname') + ' ' + p.get('lastname'),
-			number : p.get('number'),
-			nickname : p.get('nickname')
-		}).getView());
-	};
-
-	$.team_banner.image = '/' + team.get('level') + '.png';
-	$.playerlist.setData(rows);
-}
-// x = Alloy.Globals.teams;
-
-// Team.fetch({
-// success : function(_model, _response) {
-// //Ti.API.info(JSON.stringify(_response, null, 2));
-// // var rows = [];
-// // _.each(_response, function(item) {
-// // console.log('angels_rest.js//item: ' + JSON.stringify(item));
-// // rows.push(Alloy.createController('trow', {
-// // name : item.name,
-// // level : item.level
-// // }).getView());
-// // });
-// // $.table9.setData(rows);
-// },
-// error : function(_model, _response) {
-// //Ti.API.info(JSON.stringify(_response, null, 2));
-// alert("error retrieving Team data");
+// exports.setTeam = function(team) {
+	// console.log('setTeam: ' + JSON.stringify(team))
+	// $.win4.title = team ? team.get('name') : '';
+	// if (team) {
+		// teamId = team.get('idteams');
+		// console.log('idteams:' + teamId);
+	// }
 // }
-// });
 
-// var tableData = [ {title: 'Apples'}, {title: 'Bananas'}, {title: 'Carrots'}, {title: 'Potatoes'} ];
-//$.mytv.setData(tableData);
+	$.win4.title = team ? team.get('name') : '';
+
+var players = Alloy.Collections.instance('player');
+
+// used by openPlayerDetails to de-reference index from list
+var teamPlayers;
+
+if (players.length == 0) {
+	console.log('need to fetch players');
+	$.busy2.show();
+	players.fetch({
+		success : function(_model, _response) {
+			console.log('players.fetch//success callback');
+			//Ti.API.info(JSON.stringify(_response, null, 2));
+			loadTable(_model);
+			$.busy2.hide();
+		},
+		error : function(_model, _response) {
+			//Ti.API.info(JSON.stringify(_response, null, 2));
+			alert("error retrieving Player data");
+		}
+	});
+} else {
+	console.log("players data is cached");
+	loadTable(players);
+}
 
 $.win4.addEventListener("close", function() {
 	console.log('close called');
 	$.destroy();
 });
 
-// function transformPData(model) {
-// console.log('transformPData');
-// var attrs = model.toJSON();
-// attrs.fullname = attrs.firstname + ' ' + attrs.lastname;
-// attrs.nickname = 'Nickname: ' + attrs.nickname;
-// return attrs;
-// }
+function loadTable(collection) {
+	console.log('loadTable()');
+	teamPlayers = filterByTeam(collection);
+	console.log('filterByTeam: ' + teamPlayers.length);
 
-var filteredplayers;
+	var rows = [];
+	for (var i = 0, j = teamPlayers.length; i < j; i++) {
+		var p = teamPlayers[i];
+		// console.log('players[i] = ' + p.get('lastname'));
+		rows.push(Alloy.createController('row', {
+			name : p.fullname(),
+			number : p.get('number'),
+			nickname : p.get('nickname')
+		}).getView());
+	};
+	console.log('loadTable()//rows done');
+
+	$.team_banner.image = '/' + team.get('level') + '.png';
+	$.playerlist.setData(rows);
+
+	console.log('loadTable() done');
+}
 
 function filterByTeam(collection) {
 	console.log('filterByTeam: collection.length: ' + collection.length);
@@ -82,7 +76,7 @@ function filterByTeam(collection) {
 	else
 		console.log('teamId is null');
 
-	filteredplayers = collection.filter(function(player) {
+	var filteredplayers = collection.filter(function(player) {
 		return player.get("teamsId").idteams === teamId;
 	});
 	console.log('filteredplayers: ' + filteredplayers.length);
@@ -99,34 +93,16 @@ function filterByTeam(collection) {
 }
 
 function openPlayerDetails(e) {
-	console.log('openPlayerDetails() called, e.index: ' + e.index);
+	console.log('teamplayers.js//openPlayerDetails() called, e.index: ' + e.index);
 
+	var player = teamPlayers[e.index];
+	console.log('player(e.index): ' + JSON.stringify(player));
+	
 	var controller = Alloy.createController('playerdetails', {
-		from : 'teamplayers.js'
+		player : player
 	});
 	var win = controller.getView();
 
-	console.log('filteredplayers: ' + filteredplayers.length);
-	var players = filteredplayers;
-	//Alloy.Collections.player;
-	var player = players[e.index];
-	console.log('player(e.index): ' + JSON.stringify(player));
-	console.log('player lastname:' + player.get('lastname'));
-	controller.setPlayer(player);
-
-	// if (OS_IOS) {
-		// var nav = Alloy.Globals.nav1;
-// 
-	// //$.tab1_win1.setTabBarHidden('true');
-		// win.hideTabBar();
-// 
-		// nav.open(win, {
-			// animated : true
-		// });
-	// } else {
-
-		var tab = Alloy.Globals.tab1;
-
-		tab.open(win);
-//	}
+	var tab = Alloy.Globals.tab1;
+	tab.open(win);
 }
